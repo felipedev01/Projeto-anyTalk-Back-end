@@ -1,6 +1,4 @@
-// src/index.ts
-
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
@@ -17,10 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/users', userRoutes);
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
 });
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
